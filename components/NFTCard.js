@@ -8,6 +8,11 @@ import { SubInfo, EthPrice, NFTTitle } from "./SubInfo";
 const NFTCard = ({ data }) => {
   const navigation = useNavigation();
 
+  function handlePress() {
+    navigation.navigate("Details", { data });
+    console.log("this is running");
+  }
+
   return (
     <View
       style={{
@@ -56,11 +61,7 @@ const NFTCard = ({ data }) => {
           }}
         >
           <EthPrice price={data.price} />
-          <RectButton
-            minWidth={120}
-            // fontSize={}
-            handlePress={() => navigation.navigate("Details", { data })}
-          />
+          <RectButton minWidth={120} handlePress={handlePress} />
         </View>
       </View>
     </View>
